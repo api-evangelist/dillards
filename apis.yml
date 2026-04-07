@@ -1,7 +1,11 @@
 aid: dillards
-url: https://raw.githubusercontent.com/api-evangelist/dillards/refs/heads/main/apis.yml
+url: 
+  https://raw.githubusercontent.com/api-evangelist/dillards/refs/heads/main/apis.yml
 modified: '2026-03-24'
 apis: []
 common:
   - type: Website
     url: https://www.dillards.com
+description: >-
+  Shop Dillard's online for dresses, shoes, clothing, makeup, handbags, menswear and
+  more from top brands. Return in store or by mail. Free shipping over $150.
