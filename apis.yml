@@ -25,6 +25,8 @@ common:
     url: https://www.linkedin.com/company/dillards
   - type: Website
     url: https://www.dillards.com
+  - type: LLMsTxt
+    url: https://www.dillards.com/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
