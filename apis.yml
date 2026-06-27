@@ -26,7 +26,7 @@ common:
     url: https://www.linkedin.com/company/dillards
   - type: Website
     url: https://www.dillards.com
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://www.dillards.com/llms.txt
 maintainers:
   - FN: Kin Lane
