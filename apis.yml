@@ -7,6 +7,17 @@ description: >-
   cosmetics, handbags, menswear, and home goods from top brands. The retailer
   operates stores across the United States and an e-commerce site, with no
   publicly documented developer APIs at this time.
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - none
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
