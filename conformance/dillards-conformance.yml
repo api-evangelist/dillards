@@ -1,0 +1,78 @@
+generated: '2026-09-06'
+method: searched
+source: >-
+  Contract discovery + standards search, 2026-09-06. Dillard's publishes no OpenAPI,
+  AsyncAPI, GraphQL, gRPC or WSDL contract at any probed location, so nothing here is
+  derived from a spec. The one machine-to-machine standard Dillard's demonstrably
+  operates is ANSI ASC X12 EDI, mandated of its suppliers and transacted over the
+  OpenText/GXS VAN, with the implementation guide and portal gated at
+  https://ebiz.dillards.com/ (first-party host, title "WAS 5.0 Dillards Extranet").
+note: >-
+  READ THIS BEFORE TRUSTING THE X12 ROW. The Dillard's Vendor Information &
+  Implementation Guide — the document that IS the contract — is only served to
+  authenticated vendors on the eBiz extranet, so the evidence below is
+  trading-partner-directory attestation rather than a first-party machine-readable
+  artifact we could fetch and save. It is recorded as a real conformance because
+  multiple independent EDI networks publish Dillard's mandatory transaction-set list and
+  Dillard's own extranet exists to serve it; it is NOT recorded as a readable contract.
+  No OpenAPI/REST, OAuth or OpenID surface was found (see well-known/ probe), so no
+  oauth2/oidc/rfc9457/json:api rows are asserted either way.
+surfaces:
+  openapi: none found
+  graphql: none found
+  asyncapi: none found
+  grpc: none found
+  wsdl: none found
+  edi: >-
+    ANSI ASC X12, supplier-facing, over the OpenText/GXS value-added network; portal at
+    https://ebiz.dillards.com/ (gated)
+conformance:
+  - id: x12
+    label: ANSI ASC X12 EDI
+    domain_standard: true
+    market: retail / department-store supply chain
+    conforms: true
+    confidence: medium
+    evidence_class: third-party-trading-partner-directory
+    contract_readable: false
+    transaction_sets:
+      - '810'   # Invoice
+      - '816'   # Organizational Relationship
+      - '820'   # Payment Order / Remittance Advice
+      - '832'   # Price Sales Catalog
+      - '850'   # Purchase Order
+      - '856'   # Ship Notice / Manifest (ASN)
+      - '860'   # Purchase Order Change
+      - '864'   # Text Message
+      - '997'   # Functional Acknowledgment
+    network: OpenText/GXS VAN (Dillard's states it does not authorize third-party interconnects)
+    evidence:
+      - url: https://ebiz.dillards.com/
+        status: 200
+        note: >-
+          First-party Dillard's extranet ("WAS 5.0 Dillards Extranet") that hosts the
+          Vendor Portal and the Vendor Information & Implementation Guide; /eBiz/ itself
+          is edge-denied to anonymous clients (403).
+      - url: https://www.spscommerce.com/network/find-a-partner/view/dillards/
+        status: 200
+        note: SPS Commerce trading-partner directory listing for Dillard's EDI.
+      - url: https://www.orderful.com/network/dillards-department-stores-inc/1296/x12-850-purchase-order
+        status: 200
+        note: Orderful X12 850 trading-partner profile for Dillard's Department Stores, Inc.
+      - url: https://ediacademy.com/blog/dillards-edi-compliance/
+        status: 200
+        note: Published summary of the Dillard's EDI Compliance Policy and mandatory transaction sets.
+  - id: llms-txt
+    label: llms.txt (agent-facing content map)
+    domain_standard: false
+    conforms: true
+    confidence: high
+    evidence_class: first-party-document
+    contract_readable: true
+    evidence:
+      - url: https://www.dillards.com/llms.txt
+        status: 200
+        note: >-
+          Dillard's-authored llms.txt, 20,634 bytes, saved verbatim at
+          llms/dillards-llms.txt. It is a content/identity map for language models and
+          explicitly names no API, developer platform or MCP endpoint.

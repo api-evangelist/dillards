@@ -1,0 +1,27 @@
+generated: '2026-09-06'
+method: searched
+source: >-
+  Searched dillards.com, the customer-service and FAQ/notices pages, the eBiz vendor
+  extranet and general web search for any developer, API, partner or data-access plan or
+  price list, 2026-09-06.
+plan_count: 0
+note: >-
+  Dillard's publishes NO API plans or developer pricing of any kind, because it publishes
+  no API. It is a department-store retailer; its commercial surfaces are consumer retail
+  (dillards.com), a Citi-issued store credit card, and a supplier relationship. The only
+  programmatic access Dillard's grants is X12 EDI to onboarded vendors, and that carries
+  no published price — instead it carries non-compliance CHARGEBACKS assessed against the
+  vendor for paper documents and failed transmissions after a 60-day grace period, which
+  is the inverse of an API price list. Recording plan_count: 0 as measured data, not as a
+  gap in the search.
+plans: []
+evidence:
+  - url: https://www.dillards.com/c/customerservice
+    status: 200
+    note: Customer service / contact hub — consumer only, no developer or API section.
+  - url: https://www.dillards.com/c/faqs-notices-policies
+    status: 200
+    note: FAQ, notices and legal policies — no API terms, no developer plan, no pricing.
+  - url: https://ebiz.dillards.com/
+    status: 200
+    note: Vendor extranet; access is by vendor userid/password, no published plan or price.

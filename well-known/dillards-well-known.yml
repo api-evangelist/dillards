@@ -1,0 +1,126 @@
+generated: '2026-09-06'
+method: probed
+source: >-
+  Live HTTP probes of the RFC 8615 /.well-known/ path list on every host this record
+  knows: the registrable domain, www, the vendor portal host found during contract
+  discovery, and the mobile host. No baseURL or OpenAPI servers[] host exists for
+  Dillard's — the record carries no API entries.
+note: >-
+  NOTHING WAS FOUND. Every /.well-known/ path on www.dillards.com and dillards.com
+  answers HTTP 200 with the Dillard's storefront single-page-app shell, not a document.
+  A deliberate nonsense control path
+  (https://www.dillards.com/.well-known/zzz-nonexistent-<random>.json) returned the SAME
+  200 storefront shell, which proves the 200s are a catch-all soft-404 and NOT served
+  documents. ebiz.dillards.com (the Dillard's vendor portal) returns honest 404s on the
+  whole list. Because no path returned a real document, NO WellKnown, SecurityTxt or
+  AgentCard pointer is emitted in apis.yml — this file records a measured absence.
+control_probe:
+  url: https://www.dillards.com/.well-known/zzz-nonexistent-RANDOM.json
+  status: 200
+  body: storefront SPA shell (HTML), identical class of response to every probed path
+  conclusion: >-
+    200 on this host is not evidence of a document; only body content is. Every 200
+    below is therefore recorded as a soft-404 miss.
+hosts:
+  - host: www.dillards.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: null
+        result: soft-404 (HTML storefront shell, not a document)
+      - path: /.well-known/openid-configuration
+        status: 200
+        file: null
+        result: soft-404 (HTML storefront shell, not a document)
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        file: null
+        result: soft-404 (HTML storefront shell, not a document)
+      - path: /.well-known/api-catalog
+        status: 200
+        file: null
+        result: soft-404 (HTML storefront shell, not a document)
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        file: null
+        result: soft-404 (HTML storefront shell, not a document)
+      - path: /.well-known/agent-card.json
+        status: 200
+        file: null
+        result: soft-404 (HTML storefront shell, not an A2A AgentCard)
+      - path: /.well-known/agent.json
+        status: 200
+        file: null
+        result: soft-404 (HTML storefront shell, not an A2A AgentCard)
+  - host: dillards.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: null
+        result: soft-404 (HTML storefront shell, not a document)
+      - path: /.well-known/openid-configuration
+        status: 200
+        file: null
+        result: soft-404 (HTML storefront shell, not a document)
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        file: null
+        result: soft-404 (HTML storefront shell, not a document)
+      - path: /.well-known/api-catalog
+        status: 200
+        file: null
+        result: soft-404 (HTML storefront shell, not a document)
+      - path: /.well-known/ai-plugin.json
+        status: 200
+        file: null
+        result: soft-404 (HTML storefront shell, not a document)
+      - path: /.well-known/agent-card.json
+        status: 200
+        file: null
+        result: soft-404 (HTML storefront shell, not an A2A AgentCard)
+      - path: /.well-known/agent.json
+        status: 200
+        file: null
+        result: soft-404 (HTML storefront shell, not an A2A AgentCard)
+  - host: ebiz.dillards.com
+    note: >-
+      Dillard's vendor portal (WebSphere + Angular SPA at /eBiz/). Honest 404s here, in
+      contrast to the storefront's catch-all 200s.
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+        file: null
+        result: not served
+      - path: /.well-known/openid-configuration
+        status: 404
+        file: null
+        result: not served
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+        file: null
+        result: not served
+      - path: /.well-known/api-catalog
+        status: 404
+        file: null
+        result: not served
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        file: null
+        result: not served
+      - path: /.well-known/agent-card.json
+        status: 404
+        file: null
+        result: not served
+      - path: /.well-known/agent.json
+        status: 404
+        file: null
+        result: not served
+  - host: mobile.dillards.com
+    note: >-
+      Akamai edge returns a hard 403 Access Denied to non-browser clients on every path,
+      including the site root; nothing on this host could be read anonymously.
+    documents:
+      - path: /.well-known/agent-card.json
+        status: 403
+        file: null
+        result: edge-denied (not readable anonymously)

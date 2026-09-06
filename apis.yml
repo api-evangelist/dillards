@@ -3,10 +3,17 @@ name: Dillard's
 url: >-
   https://raw.githubusercontent.com/api-evangelist/dillards/refs/heads/main/apis.yml
 description: >-
-  Dillard's is an American department store chain offering apparel, footwear,
-  cosmetics, handbags, menswear, and home goods from top brands. The retailer
-  operates stores across the United States and an e-commerce site, with no
-  publicly documented developer APIs at this time.
+  Dillard's, Inc. is a Little Rock, Arkansas department store chain selling apparel,
+  footwear, cosmetics, handbags, menswear and home goods through its stores across the
+  United States and dillards.com. Dillard's publishes no developer program, no OpenAPI,
+  GraphQL, AsyncAPI, gRPC or SOAP contract, and no MCP or A2A agent surface — contract
+  discovery on 2026-09-06 found every /.well-known/ and /openapi.json path answering with
+  the storefront single-page-app shell under HTTP 200, matching a nonsense control path.
+  Its two real machine-facing surfaces are a first-party llms.txt at
+  https://www.dillards.com/llms.txt that maps the retail catalog for language models, and
+  an ANSI ASC X12 EDI trading-partner program (810/816/820/832/850/856/860/864/997 over
+  the OpenText/GXS VAN) whose implementation guide and vendor portal are gated behind a
+  login on the Dillard's eBiz extranet.
 deliveryModel:
   model: unknown
   open_source: false
@@ -40,18 +47,56 @@ tags:
   - E-Commerce
   - Fortune 500
 created: '2026-03-24'
-modified: '2026-04-28'
+modified: '2026-09-06'
 specificationVersion: '0.23'
 apis: []
 common:
   - type: DomainSecurity
     url: security/dillards-domain-security.yml
+  - type: Conformance
+    url: conformance/dillards-conformance.yml
+  - type: Plans
+    url: plans/dillards-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dillards-rate-limits.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/dillards
   - type: Website
     url: https://www.dillards.com
   - type: LlmsText
     url: https://www.dillards.com/llms.txt
+  - type: Support
+    url: https://www.dillards.com/c/customerservice
+  - type: PrivacyPolicy
+    url: https://www.dillards.com/privacy
+  - type: TermsOfService
+    url: >-
+      https://www.dillards.com/c/faqs-notices-policies?#q=int-policies-notices-question-legal-terms-of-use
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-09-06'
+  status: minimal
+  artifacts_added: 4
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    Dillard's is a physical-goods department store with no developer program at all —
+    every /.well-known/ and /openapi.json path on www.dillards.com returns the storefront
+    SPA shell under HTTP 200, byte-for-byte the same class of response as a deliberate
+    nonsense control path, and the only machine interface Dillard's actually operates is
+    a supplier X12 EDI program whose implementation guide sits behind a vendor login on
+    the ebiz.dillards.com extranet.
+  evidence:
+    - url: https://www.dillards.com/.well-known/api-catalog
+      status: 200
+    - url: https://www.dillards.com/openapi.json
+      status: 200
+    - url: https://ebiz.dillards.com/eBiz/
+      status: 403
+    - url: https://www.dillards.com/llms.txt
+      status: 200
+  checked: '2026-09-06'

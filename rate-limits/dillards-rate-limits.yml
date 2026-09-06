@@ -1,0 +1,35 @@
+generated: '2026-09-06'
+method: searched
+source: >-
+  Searched dillards.com policy/FAQ pages, robots.txt, the llms.txt Dillard's publishes,
+  and the eBiz vendor extranet for any documented request quota, throttle, burst limit or
+  rate-limit response header, 2026-09-06.
+limit_count: 0
+note: >-
+  Dillard's documents NO API rate limits, because it publishes no API. The nearest thing
+  to a machine-traffic policy Dillard's states is crawl guidance: robots.txt disallows the
+  legacy /webapp/wcs/stores/servlet/ commerce paths, and the first-party llms.txt asks
+  agents to respect robots.txt and to use the canonical category/brand/product/store/policy
+  URLs and the XML sitemap. Separately, the Akamai edge in front of www.dillards.com
+  returns an HTTP 200 "Access Denied" interstitial to non-browser clients and throttles
+  repeated automated requests — an undocumented bot-management control, not a published
+  rate limit, and it is recorded here as observed behaviour rather than as policy.
+limits: []
+headers: []
+observed:
+  - scope: edge bot management (undocumented)
+    host: www.dillards.com
+    behaviour: >-
+      Repeated automated requests are answered with a 377-byte HTML "Access Denied" body
+      under HTTP status 200; a browser-shaped request set with a paced interval is served
+      normally. No RateLimit-*, X-RateLimit-* or Retry-After header is returned.
+    status_on_exhaustion: 200 (HTML interstitial, not 429)
+    method: probed
+    observed_on: '2026-09-06'
+evidence:
+  - url: https://www.dillards.com/robots.txt
+    status: 200
+    note: Real robots.txt; crawl directives only, no quota.
+  - url: https://www.dillards.com/llms.txt
+    status: 200
+    note: First-party llms.txt; asks agents to respect robots.txt, states no limits.
