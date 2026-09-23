@@ -1,7 +1,9 @@
 ---
 title: Dillard's, Inc. Reports First Quarter Results | Thu, 05/14/2026
 url: https://investor.dillards.com/news-releases/news-release-details/dillards-inc-reports-first-quarter-results-6
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Dillard''s" press release artificial intelligence'
 position: 1
 source: serpapi-google

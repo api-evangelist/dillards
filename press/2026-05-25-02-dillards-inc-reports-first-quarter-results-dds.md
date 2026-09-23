@@ -1,7 +1,9 @@
 ---
 title: Dillard's, Inc. Reports First Quarter Results - DDS
 url: https://www.stocktitan.net/news/DDS/dillard-s-inc-reports-first-quarter-v63n3of1e4jm.html
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Dillard''s" press release artificial intelligence'
 position: 2
 source: serpapi-google

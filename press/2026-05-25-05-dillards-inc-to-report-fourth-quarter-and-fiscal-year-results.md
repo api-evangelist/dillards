@@ -1,7 +1,9 @@
 ---
 title: Dillard's, Inc. to Report Fourth Quarter and Fiscal Year Results
 url: https://www.barchart.com/story/news/374069/dillards-inc-to-report-fourth-quarter-and-fiscal-year-results
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Dillard''s" press release artificial intelligence'
 position: 5
 source: serpapi-google

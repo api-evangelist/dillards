@@ -1,7 +1,9 @@
 ---
 title: Dillard's, Inc. Reports First Quarter Results | Markets Insider
 url: https://markets.businessinsider.com/news/stocks/dillard-s-inc-reports-first-quarter-results-1036155467
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Dillard''s" press release artificial intelligence'
 position: 3
 source: serpapi-google
