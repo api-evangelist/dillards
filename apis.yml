@@ -71,7 +71,7 @@ common:
     url: https://www.dillards.com/privacy
   - type: TermsOfService
     url: >-
-      https://www.dillards.com/c/faqs-notices-policies?#q=int-policies-notices-question-legal-terms-of-use
+      https://www.dillards.com/c/faqs-notices-policies#q=int-policies-notices-question-legal-terms-of-use
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
