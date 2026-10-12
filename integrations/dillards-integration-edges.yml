@@ -1,0 +1,18 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/dillards/integrations
+- https://zapier.com/apps/dillard-s/integrations
+- https://n8n.io/integrations/dillards/
+- https://composio.dev/toolkits/dillards
+- https://monid.ai/tools/dillards
+checked:
+- https://composio.dev/toolkits/dillards
+- https://monid.ai/tools/dillards
+- https://n8n.io/integrations/dillards/
+- https://zapier.com/apps/dillard-s/integrations
+- https://zapier.com/apps/dillards/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
